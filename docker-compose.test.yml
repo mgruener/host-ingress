@@ -1,0 +1,14 @@
+version: '3'
+services:
+  host-ingress:
+    ports:
+      - "80:80"
+      - "8080:8080"
+    command:
+      - "traefik"
+      - "--docker=true"
+      - "--docker.exposedbydefault=false"
+      - "--web=true"
+      - "--web.address=:8080"
+      - "--defaultentrypoints=http"
+      - "--entryPoints=Name:http Address::80"
